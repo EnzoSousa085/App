@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liga Pokémon</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<div id="login">
+<h2>🏆 Liga Pokémon</h2>
+<input id="nome" placeholder="Seu nome">
+<button onclick="entrar()">Entrar</button>
+</div>
+
+<div id="app" class="hidden">
+
+<header>
+<h3 id="player"></h3>
+<button onclick="logout()">Sair</button>
+</header>
+
+<nav>
+<button onclick="tela('ranking')">Ranking</button>
+<button onclick="tela('nova')">Nova</button>
+<button onclick="tela('historico')">Histórico</button>
+<button onclick="tela('perfil')">Perfil</button>
+</nav>
+
+<div id="ranking"></div>
+
+<div id="nova" class="hidden">
+
+<h3>Nova batalha</h3>
+
+<input id="j1" placeholder="Jogador 1">
+<input id="j2" placeholder="Jogador 2">
+
+<input id="p1" type="number" placeholder="Pokémon derrotados J1">
+<input id="p2" type="number" placeholder="Pokémon derrotados J2">
+
+<select id="vencedor">
+<option value="">Vencedor</option>
+<option value="1">Jogador 1</option>
+<option value="2">Jogador 2</option>
+</select>
+
+<button onclick="salvar()">Salvar batalha</button>
+
+</div>
+
+<div id="historico" class="hidden"></div>
+
+<div id="perfil" class="hidden"></div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
