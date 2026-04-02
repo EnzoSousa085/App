@@ -1,0 +1,51 @@
+body{
+font-family:Arial;
+background:#0d1117;
+color:white;
+padding:15px;
+}
+
+.hidden{
+display:none;
+}
+
+input,select,button{
+width:100%;
+padding:12px;
+margin:5px 0;
+font-size:16px;
+border-radius:8px;
+border:none;
+}
+
+button{
+background:#ff3b3b;
+color:white;
+font-weight:bold;
+}
+
+.card{
+background:#161b22;
+padding:12px;
+margin:8px 0;
+border-radius:12px;
+}
+
+nav button{
+width:24%;
+display:inline-block;
+font-size:12px;
+}
+
+.lider{
+border:2px solid gold;
+}
+
+.small{
+font-size:12px;
+opacity:.7;
+}
+
+h3{
+margin-top:10px;
+}
