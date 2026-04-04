@@ -1,118 +1,52 @@
-const words = {
-easy:[
-"médico","professor","cachorro","bola","comer",
-"dormir","correr","nadar","telefone","carro"
-],
-
-medium:[
-"andar de bicicleta","tirar selfie","escorregar",
-"fotógrafo","quebrar vidro","plantar árvore",
-"andar de skate"
-],
-
-hard:[
-"crise existencial","debater política",
-"imitar celebridade","ganhar na loteria",
-"dirigir no trânsito"
-]
+body{
+margin:0;
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
 }
 
-let used=[]
-let teams=[]
-let score=[]
-let currentTeam=0
-let timer
-let timeLeft
-
-function startGame(){
-
-let num=document.getElementById("teams").value
-
-teams=[]
-score=[]
-
-for(let i=0;i<num;i++){
-teams.push("Dupla "+(i+1))
-score.push(0)
+.container{
+max-width:500px;
+margin:auto;
+padding:20px;
 }
 
-document.getElementById("setup").classList.add("hidden")
-document.getElementById("game").classList.remove("hidden")
-
-updateScore()
-nextRound()
+.card{
+background:#111827;
+padding:20px;
+border-radius:12px;
 }
 
-function nextRound(){
-
-let level=document.getElementById("level").value
-
-let available=words[level].filter(w=>!used.includes(w))
-
-if(available.length===0){
-used=[]
-available=words[level]
+input{
+padding:8px;
+margin:5px;
+border-radius:8px;
+border:none;
 }
 
-let word=available[Math.floor(Math.random()*available.length)]
-
-used.push(word)
-
-document.getElementById("word").innerText=word
-document.getElementById("team").innerText=teams[currentTeam]
-
-startTimer()
+button{
+padding:12px;
+margin:10px;
+border:none;
+border-radius:10px;
+cursor:pointer;
 }
 
-function startTimer(){
-
-clearInterval(timer)
-
-timeLeft=document.getElementById("time").value
-document.getElementById("timer").innerText=timeLeft+"s"
-
-timer=setInterval(()=>{
-
-timeLeft--
-document.getElementById("timer").innerText=timeLeft+"s"
-
-if(timeLeft<=0){
-clearInterval(timer)
-nextTeam()
+#word{
+font-size:40px;
+margin:40px 0;
+background:#111827;
+padding:30px;
+border-radius:12px;
 }
 
-},1000)
-
+.top{
+display:flex;
+justify-content:space-between;
+font-size:20px;
 }
 
-function nextTeam(){
-
-currentTeam++
-
-if(currentTeam>=teams.length)
-currentTeam=0
-
-updateScore()
-nextRound()
-}
-
-function correct(){
-score[currentTeam]++
-updateScore()
-nextRound()
-}
-
-function skip(){
-nextRound()
-}
-
-function updateScore(){
-
-let html="<h3>🏆 Placar</h3>"
-
-for(let i=0;i<teams.length;i++){
-html+=teams[i]+" : "+score[i]+"<br>"
-}
-
-document.getElementById("score").innerHTML=html
+.hidden{
+display:none;
 }
