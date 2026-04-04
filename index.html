@@ -3,53 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mímica em Duplas</title>
-
-<link rel="stylesheet" href="Style.css">
+<title>Mímica</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="container">
+
 <h1>🎭 Mímica em Duplas</h1>
 
-<div id="setup">
-<label>Duplas:</label>
-<input type="number" id="teams" value="2" min="2">
+<div id="setup" class="card">
 
-<br><br>
+<div class="row">
+<label>Duplas</label>
+<input type="number" id="teams" value="2" min="2" max="10">
+</div>
 
-<label>Tempo (segundos):</label>
+<div class="row">
+<label>Tempo</label>
 <input type="number" id="time" value="60">
+</div>
 
-<br><br>
-
-<label>Nível:</label>
+<div class="row">
+<label>Nível</label>
 <select id="level">
 <option value="easy">Fácil</option>
 <option value="medium">Médio</option>
 <option value="hard">Difícil</option>
 </select>
+</div>
 
-<br><br>
+<button class="start" onclick="startGame()">Começar</button>
 
-<button onclick="startGame()">Começar</button>
 </div>
 
 <div id="game" class="hidden">
-<h2 id="team"></h2>
 
-<h1 id="word"></h1>
+<div class="top">
+<div id="team"></div>
+<div id="timer"></div>
+</div>
 
-<h2 id="timer"></h2>
+<div id="word">Palavra</div>
 
 <div class="buttons">
-<button onclick="correct()">✅ Acertou</button>
-<button onclick="skip()">⏭️ Pular</button>
+<button class="correct" onclick="correct()">Acertou</button>
+<button class="skip" onclick="skip()">Pular</button>
 </div>
+
 </div>
 
-<div id="score"></div>
+<div id="score" class="score"></div>
 
-<script src="Script.js"></script>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
