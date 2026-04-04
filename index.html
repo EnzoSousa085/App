@@ -10,30 +10,19 @@
 
 <div class="container">
 
-<h1>🎭 Mímica em Duplas</h1>
+<h1>🎭 Mímica</h1>
 
 <div id="setup" class="card">
 
-<div class="row">
-<label>Duplas</label>
-<input type="number" id="teams" value="2" min="2" max="10">
-</div>
+<label>Quantidade de duplas</label>
+<input type="number" id="teamsCount" value="2" min="2" max="10">
 
-<div class="row">
-<label>Tempo</label>
-<input type="number" id="time" value="60">
-</div>
+<div id="teamNames"></div>
 
-<div class="row">
-<label>Nível</label>
-<select id="level">
-<option value="easy">Fácil</option>
-<option value="medium">Médio</option>
-<option value="hard">Difícil</option>
-</select>
-</div>
+<label>Tempo por tentativa</label>
+<input type="number" id="time" value="30">
 
-<button class="start" onclick="startGame()">Começar</button>
+<button onclick="startGame()">Começar</button>
 
 </div>
 
@@ -44,16 +33,16 @@
 <div id="timer"></div>
 </div>
 
-<div id="word">Palavra</div>
+<div id="word"></div>
 
 <div class="buttons">
-<button class="correct" onclick="correct()">Acertou</button>
-<button class="skip" onclick="skip()">Pular</button>
+<button onclick="correct()">Acertou</button>
+<button onclick="wrong()">Errou</button>
 </div>
 
 </div>
 
-<div id="score" class="score"></div>
+<div id="score"></div>
 
 </div>
 
