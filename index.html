@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mímica em Duplas</title>
-<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="Style.css">
 </head>
 <body>
 
@@ -14,8 +15,12 @@
 <label>Duplas:</label>
 <input type="number" id="teams" value="2" min="2">
 
+<br><br>
+
 <label>Tempo (segundos):</label>
 <input type="number" id="time" value="60">
+
+<br><br>
 
 <label>Nível:</label>
 <select id="level">
@@ -25,12 +30,15 @@
 </select>
 
 <br><br>
+
 <button onclick="startGame()">Começar</button>
 </div>
 
 <div id="game" class="hidden">
 <h2 id="team"></h2>
+
 <h1 id="word"></h1>
+
 <h2 id="timer"></h2>
 
 <div class="buttons">
@@ -41,6 +49,7 @@
 
 <div id="score"></div>
 
-<script src="script.js"></script>
+<script src="Script.js"></script>
+
 </body>
 </html>
