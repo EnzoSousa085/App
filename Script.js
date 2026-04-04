@@ -1,18 +1,19 @@
 let words = {
 easy: [
 "médico","professor","bola","cachorro","comer","dormir",
-"carro","telefone","dançar","pular"
+"carro","telefone","dançar","pular","nadar","correr"
 ],
 
 medium: [
 "fotógrafo","escova de dente","andar de bicicleta",
-"quebrar vidro","escorregar","plantar árvore"
+"quebrar vidro","escorregar","plantar árvore",
+"andar de skate","tirar selfie"
 ],
 
 hard: [
 "debater política","imitar celebridade",
 "crise existencial","dirigir no trânsito",
-"fazer mágica"
+"fazer mágica","ganhar na loteria"
 ]
 };
 
@@ -50,7 +51,6 @@ available = words[level];
 }
 
 let word = available[Math.floor(Math.random()*available.length)];
-
 used.push(word);
 
 document.getElementById("word").innerText = word;
@@ -63,7 +63,6 @@ function startTimer(){
 clearInterval(timer);
 
 timeLeft = document.getElementById("time").value;
-
 document.getElementById("timer").innerText = timeLeft;
 
 timer = setInterval(()=>{
