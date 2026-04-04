@@ -1,20 +1,24 @@
 const words = [
 "médico","professor","cachorro","bola",
 "andar de bicicleta","tirar selfie",
-"crise existencial","dirigir","dançar"
+"crise existencial","dirigir",
+"dançar","cozinhar","jogar futebol",
+"escovar dentes","andar de skate"
 ]
 
+let used=[]
 let teams=[]
 let score=[]
 let currentTeam=0
-let currentWord=""
+let startTeam=0
 let attempts=0
+let currentWord=""
 let timer
 let timeLeft
 
-document.getElementById("teamsCount").addEventListener("change",createInputs)
-
+document.addEventListener("DOMContentLoaded",()=>{
 createInputs()
+})
 
 function createInputs(){
 
@@ -22,7 +26,7 @@ let count=document.getElementById("teamsCount").value
 let html=""
 
 for(let i=0;i<count;i++){
-html+=`<input placeholder="Dupla ${i+1}" id="team${i}"><br>`
+html+=`<input placeholder="Nome da dupla ${i+1}" id="team${i}">`
 }
 
 document.getElementById("teamNames").innerHTML=html
@@ -50,7 +54,18 @@ nextRound()
 function nextRound(){
 
 attempts=0
-currentWord=words[Math.floor(Math.random()*words.length)]
+
+let available=words.filter(w=>!used.includes(w))
+
+if(available.length===0){
+used=[]
+available=words
+}
+
+currentWord=available[Math.floor(Math.random()*available.length)]
+used.push(currentWord)
+
+currentTeam=startTeam
 
 showTurn()
 }
@@ -68,19 +83,18 @@ function startTimer(){
 clearInterval(timer)
 
 timeLeft=document.getElementById("time").value
-document.getElementById("timer").innerText=timeLeft
+document.getElementById("timer").innerText=timeLeft+"s"
 
 timer=setInterval(()=>{
 
 timeLeft--
-document.getElementById("timer").innerText=timeLeft
+document.getElementById("timer").innerText=timeLeft+"s"
 
 if(timeLeft<=0){
 wrong()
 }
 
 },1000)
-
 }
 
 function wrong(){
@@ -90,7 +104,7 @@ clearInterval(timer)
 attempts++
 
 if(attempts>=teams.length){
-nextTeamStart()
+nextRoundStart()
 return
 }
 
@@ -108,15 +122,15 @@ clearInterval(timer)
 
 score[currentTeam]++
 
-nextTeamStart()
+nextRoundStart()
 }
 
-function nextTeamStart(){
+function nextRoundStart(){
 
-currentTeam++
+startTeam++
 
-if(currentTeam>=teams.length)
-currentTeam=0
+if(startTeam>=teams.length)
+startTeam=0
 
 updateScore()
 nextRound()
@@ -124,7 +138,7 @@ nextRound()
 
 function updateScore(){
 
-let html="<h3>Placar</h3>"
+let html="<h3>🏆 Placar</h3>"
 
 for(let i=0;i<teams.length;i++){
 html+=teams[i]+" : "+score[i]+"<br>"
