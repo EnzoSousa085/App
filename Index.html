@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Mímica em Duplas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🎭 Mímica</h1>
+
+<div id="setup">
+<label>Duplas:</label>
+<input type="number" id="teams" value="2" min="2">
+
+<label>Tempo (segundos):</label>
+<input type="number" id="time" value="60">
+
+<label>Nível:</label>
+<select id="level">
+<option value="easy">Fácil</option>
+<option value="medium">Médio</option>
+<option value="hard">Difícil</option>
+</select>
+
+<button onclick="startGame()">Começar</button>
+</div>
+
+<div id="game" class="hidden">
+<h2 id="team"></h2>
+<h1 id="word"></h1>
+<h2 id="timer"></h2>
+
+<button onclick="correct()">Acertou</button>
+<button onclick="skip()">Pular</button>
+</div>
+
+<div id="score"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
