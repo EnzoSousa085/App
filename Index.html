@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mímica em Duplas</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>🎭 Mímica</h1>
+<h1>🎭 Mímica em Duplas</h1>
 
 <div id="setup">
 <label>Duplas:</label>
@@ -23,6 +24,7 @@
 <option value="hard">Difícil</option>
 </select>
 
+<br><br>
 <button onclick="startGame()">Começar</button>
 </div>
 
@@ -31,13 +33,14 @@
 <h1 id="word"></h1>
 <h2 id="timer"></h2>
 
-<button onclick="correct()">Acertou</button>
-<button onclick="skip()">Pular</button>
+<div class="buttons">
+<button onclick="correct()">✅ Acertou</button>
+<button onclick="skip()">⏭️ Pular</button>
+</div>
 </div>
 
 <div id="score"></div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
